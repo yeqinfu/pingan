@@ -16,6 +16,7 @@
 #   public *;
 #}
 -keep public class name.caiyao.tencentsport.MainHook
+-keep public class name.caiyao.tencentsport.JinGuanJiaHook
 -keep public class name.caiyao.tencentsport.SettingFragment{*;}
 -keep public class name.caiyao.sporteditor.R$*{
 public static final int *;

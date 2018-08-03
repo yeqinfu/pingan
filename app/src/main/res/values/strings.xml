@@ -2,4 +2,19 @@
     <string name="app_name">运动修改器</string>
     <string name="xposed_description">修改手机运动步数</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="scroll_top">Scroll to top</string>
+    <string name="scroll_bottom">Scroll to bottom</string>
+    <string name="menuSearch">Search</string>
+    <string name="menuReload">Reload</string>
+    <string name="menuSend">Send</string>
+    <string name="menuSaveToSd">Save to SD card</string>
+    <string name="menuClearLog">Clear log now</string>
+    <string name="log_is_empty">Log is empty</string>
+    <string name="logs_clear_failed">Could not clear the log:</string>
+    <string name="logs_cleared">Log successfully cleared</string>
+    <string name="permissionNotGranted">This feature will not work without permission to write external storage.</string>
+    <string name="sdcard_not_writable">SD card not found or not writable</string>
+    <string name="loading">Loading…</string>
+    <string name="logs_save_failed">Could not write log to SD card:</string>
+
 </resources>

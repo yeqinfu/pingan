@@ -183,6 +183,7 @@ public class MainHook implements IXposedHookLoadPackage, IXposedHookZygoteInit {
                             }
                         }
                     }
+
                     if (ss.getType() == Sensor.TYPE_STEP_COUNTER || ss.getType() == Sensor.TYPE_STEP_DETECTOR) {
                         if ((isWeixin && loadPackageParam.packageName.equals(WEXIN))) {
                             if (isAuto) {

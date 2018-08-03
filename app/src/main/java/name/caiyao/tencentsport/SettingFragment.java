@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.util.Log;
 
 public class SettingFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -21,9 +22,16 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getPreferenceManager().setSharedPreferencesMode(Context.MODE_WORLD_READABLE);
-        getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
-        addPreferencesFromResource(R.xml.preference);
+        getPreferenceManager().setSharedPreferencesMode(Context.MODE_PRIVATE);
+        try{
+            getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+            addPreferencesFromResource(R.xml.preference);
+        }catch (Exception e){
+            Log.d("yeqinfu","================");
+            e.printStackTrace();
+            Log.d("yeqinfu","================");
+        }
+
     }
 
     @Override
