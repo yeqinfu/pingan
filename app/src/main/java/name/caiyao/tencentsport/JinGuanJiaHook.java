@@ -49,15 +49,31 @@ public class JinGuanJiaHook implements IXposedHookLoadPackage {
     Set<XC_MethodHook.Unhook> mUnhookSet;
     private boolean x=false;
     private int i=0;
+    private long lastUpdateTime,lastUpdateTime1; // 上次检测时间
+    private int m=10;
+    private static final int UPTATE_INTERVAL_TIME = 100; // 两次的时间间隔
     private void hook(XC_LoadPackage.LoadPackageParam loadPackageParam) {
         final Class<?> sensorEL = findClass("android.hardware.SystemSensorManager$SensorEventQueue", loadPackageParam.classLoader);
         XC_MethodHook dd=new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-              /*  if (!isOpen){
+
+                long currentUpdateTime1 = System.currentTimeMillis();
+                long timeInterval1 = currentUpdateTime1 - lastUpdateTime1;
+
+                if (timeInterval1 < m*1000)
                     return;
-                }*/
-               /* ((float[]) param.args[1])[0] = ((float[]) param.args[1])[0] +10050;*/
+                // 现在检测时间
+                long currentUpdateTime = System.currentTimeMillis();
+
+                // 两次检测的时间间隔
+                long timeInterval = currentUpdateTime - lastUpdateTime;
+               // 判断是否达到了检测时间间隔
+                if (timeInterval < UPTATE_INTERVAL_TIME)
+                    return;
+                // 现在的时间变成last时间
+                lastUpdateTime = currentUpdateTime;
+                lastUpdateTime1 = currentUpdateTime1;
 
                step=step%40000;
                 ((float[]) param.args[1])[0] = ((float[]) param.args[1])[0] +step;

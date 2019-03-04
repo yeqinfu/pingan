@@ -11,8 +11,17 @@ android {
         versionCode 130
         versionName "1.2.11"
     }
+    signingConfigs {
+        BZWConfigs {
+            storeFile file("android.keystore")
+            storePassword "520wyd"
+            keyAlias "android.keystore"
+            keyPassword "520wyd"
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.BZWConfigs
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
